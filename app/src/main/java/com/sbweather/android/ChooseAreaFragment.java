@@ -101,6 +101,7 @@ public class ChooseAreaFragment extends Fragment {
                     } else if (getActivity() instanceof WeatherActivity){
                         WeatherActivity activity = (WeatherActivity) getActivity();
                         activity.drawerLayout.closeDrawers();
+                        queryProvinces();
                         activity.swipeRefreshLayout.setRefreshing(true);
                         activity.requestWeather(weatherId);
                     }
@@ -178,7 +179,6 @@ public class ChooseAreaFragment extends Fragment {
             int cityCode = selectedCity.getCityCode();
             String address = "http://guolin.tech/api/china/" + provinceCode + "/" + cityCode;
             Log.d("CITY CODE", address);
-
             queryFromServer(address, "county");
         }
     }
